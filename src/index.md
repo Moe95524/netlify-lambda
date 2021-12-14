@@ -7,7 +7,7 @@ layout: page.njk
 
 #### [you can see the full source code on github](https://github.com/Moe95524/netlify-lambda)
 
-{%- assign functions = 'say-hello,axios' | split: ',' -%}
+{%- assign functions = 'say-hello,axios-json' | split: ',' -%}
 
 	<ul>
 		{%- for function in functions -%}
