@@ -5,8 +5,7 @@
   "main": ".eleventy.js",
   "scripts": {
     "start": "eleventy --serve",
-    "build": "npm run build:eleventy; npm run build:lambda;",
-    "build:eleventy": "eleventy",
+    "build": "eleventy",
     "start:lambda": "netlify-lambda serve .functions",
     "build:lambda": "netlify-lambda build .functions"
   },
