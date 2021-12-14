@@ -2,8 +2,6 @@
 # dependencies installed by npm
 node_modules
 
-# build artifacts
-dist
 
 # secrets and errors
 .env
