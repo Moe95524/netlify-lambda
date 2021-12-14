@@ -1,0 +1,3 @@
+[build]
+  Functions = ".test-netlify"
+  Command = "npm run build:lambda"

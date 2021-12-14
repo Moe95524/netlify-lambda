@@ -1,5 +1,5 @@
 ---
-title: Page One
+title: Test
 ---
 
-This is the first page.
+#### [Im a test function, click me](/.netlify/functions/body-of-data)

@@ -1,5 +1,62 @@
 ---
-title: Page Two
+title: Subscribe
 ---
 
-This is the second page.
+<p>
+Want to be informed when I post new articles? simply enter your
+email address below. maybe you'll not get any email i'm doing this only for test, you can 
+unsubscribe any time. 
+</p>
+
+<form data-members-form="subscribe" class="subscribe-form">
+
+<div id="app" class="form-group">
+	<label for="subscribe-email" class="screen-reader-text">Your email address</label>
+	<input v-model="email" type="email" class="subscribe-email" placeholder="Your email address"> 
+	<button @click="doSubscribe" :disabled="working" class="button" type="submit">Subscribe</button>
+	<p style="font-weight: bold">
+	{% raw %}
+	{{ status }}
+	{% endraw %}
+	</p>
+	</div>
+</form>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+const SUBSCRIBE_API = '/.netlify/functions/mailchimp-check?email=';
+
+const app = new Vue({
+	el:'#app',
+	data: {
+		email:'',
+    	working:false,
+		status:''
+	},
+	methods: {
+		async doSubscribe() {
+			if(this.email === '') return;
+			this.working = true;
+			console.log('do add for'+this.email);
+			this.status = 'Attemping to subscribe you...';
+			
+			fetch(SUBSCRIBE_API + this.email)
+			.then(res => {
+				return res.json()
+			})
+			.then(res => {
+				console.log('status',res.status);
+				if(res.status === 'subscribed') {
+					this.status = 'You have been subscribed!';
+				} else if(res.status === 400) {
+					this.status = `There was an error: ${res.detail}`;
+				}
+				this.working = false;
+			})
+			.catch(e => {
+				console.log('error result', e);
+			});
+		}
+	}
+})
+</script>

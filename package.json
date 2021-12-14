@@ -1,15 +1,18 @@
 {
-  "name": "smol-11ty-starter",
+  "name": "smol-11ty-lambda",
   "version": "1.0.0",
-  "description": "Extremely minimal Eleventy starter to kickstart a simple multi-page site / a nearly opinionless foundation to continue building on",
-  "main": "index.html",
+  "description": "Simple static site to understand how netlify lambda serverless function works.",
+  "main": ".eleventy.js",
   "scripts": {
     "start": "eleventy --serve",
-    "build": "eleventy"
+    "build": "npm run build:eleventy; npm run build:lambda;",
+    "build:eleventy": "eleventy",
+    "start:lambda": "netlify-lambda serve .functions",
+    "build:lambda": "netlify-lambda build .functions"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/5t3ph/smol-11ty-starter.git"
+    "url": "git+https://github.com/Moe95524/netlify-lambda"
   },
   "keywords": [
     "11ty",
@@ -17,14 +20,21 @@
     "eleventy",
     "eleventy-starter",
     "eleventy-sample",
-    "11ty-template"
+    "11ty-template",
+    "lambda",
+    "serverless-functions",
+    "netlify"
   ],
-  "author": "5t3ph",
+  "author": "Moe95524",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/5t3ph/smol-11ty-starter/issues"
+    "url": "https://github.com/Moe95524/netlify-lambda/issues"
   },
   "dependencies": {
-    "@11ty/eleventy": "^0.11.1"
+    "@11ty/eleventy": "^0.12.1",
+    "axios": "^0.24.0",
+    "crypto": "^1.0.1",
+    "dotenv": "^10.0.0",
+    "netlify-lambda": "^2.0.15"
   }
 }
