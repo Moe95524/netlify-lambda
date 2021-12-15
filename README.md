@@ -1,4 +1,4 @@
-# adding some dynamic functionality to 11ty static site
+# Adding some dynamic functionality to 11ty static site
 
 I was building a static site using 11ty eleventy static site generator with my teammate [Zain](https://github.com/zain667) and uploaded it to netlify to use their CMS with our website that idea came from [Kevin Powell](https://www.youtube.com/watch?v=4wD00RT6d-g), it turns out that I need to create some backend functions for our subscribers.
 
