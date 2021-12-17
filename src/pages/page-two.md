@@ -16,47 +16,11 @@ unsubscribe any time.
 	<button @click="doSubscribe" :disabled="working" class="button" type="submit">Subscribe</button>
 	<p style="font-weight: bold">
 	{% raw %}
-	{{ status }}
+{{ status }}
 	{% endraw %}
-	</p>
-	</div>
+</p>
+</div>
 </form>
 
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script>
-const SUBSCRIBE_API = '/.netlify/functions/mailchimp-check?email=';
-
-const app = new Vue({
-	el:'#app',
-	data: {
-		email:'',
-    	working:false,
-		status:''
-	},
-	methods: {
-		async doSubscribe() {
-			if(this.email === '') return;
-			this.working = true;
-			console.log('do add for'+this.email);
-			this.status = 'Attemping to subscribe you...';
-			
-			fetch(SUBSCRIBE_API + this.email)
-			.then(res => {
-				return res.json()
-			})
-			.then(res => {
-				console.log('status',res.status);
-				if(res.status === 'subscribed') {
-					this.status = 'You have been subscribed!';
-				} else if(res.status === 400) {
-					this.status = `There was an error: ${res.detail}`;
-				}
-				this.working = false;
-			})
-			.catch(e => {
-				console.log('error result', e);
-			});
-		}
-	}
-})
-</script>
+<script defer type="text/javascript" src="/assets/subscribe.js"></script>

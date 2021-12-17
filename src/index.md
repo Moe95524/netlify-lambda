@@ -26,7 +26,7 @@ layout: page.njk
 
 Icing chocolate fruitcake bear claw bonbon. Ice cream tiramisu sesame snaps marshmallow carrot cake sesame snaps. Powder jelly-o soufflé powder dragée caramels jelly-o chupa chups. Sweet roll chocolate cake candy canes wafer lollipop caramels chupa chups. Wafer powder donut powder croissant donut ice cream macaroon fruitcake. Donut powder fruitcake bear claw liquorice gingerbread toffee. Powder biscuit marzipan.
 
-<!-- Provided within _data/catpic.js -->
+<!-- Provided within _data/birdpic.js -->
 
 ![bird of the day]({{ birdpic }})
 
